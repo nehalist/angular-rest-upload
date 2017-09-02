@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Bob" formControlName="name">
+  </div>
+  <div class="form-group">
+    <label for="avatar">Avatar</label>
+    <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+    <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">clear file</button>
+  </div>
+  <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+</form>
